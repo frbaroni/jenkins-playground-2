@@ -6,8 +6,8 @@ def spec = [
 
 def version_file = new File("/build_data/$spec.project")
 env.BUILD_ID = version_file.text.toInteger() + 1
-version_file.text = env.BUILD_ID.toString()
-version_file.close()
+version_file.write(env.BUILD_ID.toString())
+version_file = null
 currentBuild.displayName = "#" + env.BUILD_ID
 
 

@@ -40,7 +40,7 @@ pipeline {
 while(true) {
     def deployTo = ""
     stage("Deploy?") {
-        deployTo = input(message: 'Target', parameters: [choice(choices: spec.environments.keySet() as List, description: '', name: '')]).toLowerCase()
+        deployTo = input(message: 'Target', parameters: [choice(choices: (spec.environments.keySet() as List), description: '', name: '')])
     }
 
     stage("Deployed to [$deployTo]") {

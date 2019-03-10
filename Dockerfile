@@ -10,6 +10,7 @@ RUN add-apt-repository \
    stable"
 RUN apt-get update  -qq \
     && apt-get install docker-ce=17.12.1~ce-0~debian -y
+RUN groupmod -g 1001 docker # Match this with the host groupid for docker
 RUN usermod -aG docker jenkins
 
 USER jenkins

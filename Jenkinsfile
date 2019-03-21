@@ -1,8 +1,8 @@
 def spec = [
   project: 'My Project A',
-  build: { () -> { 
+  build: { ->
     sh 'node --version'
-  } },
+  },
   test: 'node --version',
   builder: 'node:8-alpine',
   builder_args: '-v builder_cache:/var/cache',
